@@ -1,0 +1,17 @@
+
+=== Wed Apr 10 11:00:14 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.2d.tilemap@1.0.0
+  com.unity.timeline@1.0.0
+  com.unity.2d.sprite@1.0.0
+  com.unity.modules.androidjni@1.0.0
+The following packages were updated:
+  com.unity.analytics from version 3.0.9 to 3.2.2
+  com.unity.collab-proxy from version 1.2.9 to 1.2.16
+  com.unity.package-manager-ui from version 2.1.0-preview.1 to 2.2.0
+  com.unity.postprocessing from version 2.0.16-preview to 2.1.2
+  com.unity.purchasing from version 2.0.1 to 2.0.6
