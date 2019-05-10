@@ -1,4 +1,27 @@
-.vs/Color Jump/v15/Server/sqlite3/db.lock
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Aa]uto[Bb]uild/
+
+.vscode/
+.vs/
+
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.userprefs
+*.app
+.idea/
+*.VC.*
+.DS_Store
+*~
+*.swp
+
+*.log
+*.pyc
 # =============== #
 # Unity generated #
 # =============== #
