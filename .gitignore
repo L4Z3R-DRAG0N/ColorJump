@@ -53,3 +53,7 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+Assets/ProCore/Polybrush/Shader/z_TextureBlendHeight.shader
+Assets/ProCore/Polybrush/Shader/z_TriPlanarBlend.shader
+Assets/ProCore/ProBuilder/Data/ProBuilderPreferences.asset
+ProjectSettings/XRSettings.asset
