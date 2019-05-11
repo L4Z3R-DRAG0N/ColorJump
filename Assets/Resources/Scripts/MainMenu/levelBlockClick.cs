@@ -7,6 +7,7 @@ public class levelBlockClick : MonoBehaviour
 {
     private Color original_color;
     private GameObject label;
+    public string scene_name;
     void Start()
     {
         original_color = transform.GetComponent<MeshRenderer>().material.color;
@@ -16,8 +17,13 @@ public class levelBlockClick : MonoBehaviour
     }
     void OnMouseDown()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        Application.LoadLevel("lab");
+        try
+        {
+            SceneManager.LoadScene(scene_name);
+        } catch
+        {
+
+        }
     }
 
     void OnMouseEnter()

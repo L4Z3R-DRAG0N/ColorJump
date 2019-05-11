@@ -28,7 +28,8 @@ public class StartGame : MonoBehaviour
         }
         // set is_menu_start status to true to unlock mainCamera movement
         mainCamera.GetComponent<MainMenuCameraControl>().is_menu_start = true;
-        // move mainCamera to current level recorded in player status file, temp using first level block
+        // move mainCamera to current level recorded in player status file
+        // replace with an array of coordinates later
         int level_z = 30 - level_progress * 10;
         mainCamera.GetComponent<MainMenuCameraControl>().move_to = new Vector3(27, 10, level_z);
     }

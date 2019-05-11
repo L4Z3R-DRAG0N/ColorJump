@@ -1936,6 +1936,11 @@ PrefabInstance:
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7945668032426452747, guid: 0a0e3049f970d08498146c74e5d9da06,
+        type: 3}
+      propertyPath: scene_name
+      value: level01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0e3049f970d08498146c74e5d9da06, type: 3}
 --- !u!1 &2125880783
@@ -2164,6 +2169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945668032426452747, guid: 0a0e3049f970d08498146c74e5d9da06,
+        type: 3}
+      propertyPath: scene_name
+      value: lab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0e3049f970d08498146c74e5d9da06, type: 3}
