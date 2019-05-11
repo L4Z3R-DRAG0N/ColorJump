@@ -16,10 +16,10 @@ public class StartGame : MonoBehaviour
             if (PlayerPrefs.HasKey("level_progress")) {
                 // load if has key
                 level_progress = PlayerPrefs.GetInt("level_progress", level_progress);
-                Debug.Log(level_progress);
             } else {
                 // if first start, no record, set progress as init value
                 PlayerPrefs.SetInt("level_progress", level_progress);
+                Debug.Log(level_progress);
             }
         }
         catch

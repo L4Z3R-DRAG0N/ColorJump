@@ -6,10 +6,11 @@ public class ExitGame : MonoBehaviour
 {
     public void Exit_Game() {
         #if UNITY_EDITOR
-        PlayerPrefs.SetInt("level_progress", 0);
-        UnityEditor.EditorApplication.isPlaying = false;
-        # else
-        Application.Quit();
-        # endif
+            PlayerPrefs.SetInt("level_progress", 0);
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // PlayerPrefs.SetInt("level_progress", 0);
+            Application.Quit();
+        #endif
     }
 }
