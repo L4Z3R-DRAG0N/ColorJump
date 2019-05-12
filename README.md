@@ -26,5 +26,5 @@
 
     ...
 
-    更多细节请阅读 [TODU.docx](TODUv0.1.docx)
+    更多细节请阅读 [TODU.md](TODUv0.1.md) [TODU.docx](TODUv0.1.docx)
 
