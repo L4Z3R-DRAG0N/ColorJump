@@ -2,7 +2,7 @@
 
 ![text](/README.assets/InGameScreenShoot.png)
 
-[编译 - 通过] :thumbsup:
+[编译 - 通过] ![build passing](README.assets/build_passing.svg) :thumbsup:
 
 简介：（这是一个跑酷游戏）
 
