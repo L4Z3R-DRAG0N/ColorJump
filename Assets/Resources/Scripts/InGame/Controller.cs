@@ -225,12 +225,18 @@ public class Controller : MonoBehaviour
     }
     void Antigravity() {
         Physics.gravity = new Vector3(0, -original_gravity, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
+        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
     }
     void Restoregravity() {
         Physics.gravity = new Vector3(0, original_gravity, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
     void Zerogravity() {
         Physics.gravity = new Vector3(0, 0, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
     void Timeslow() {
         Time.timeScale = 1.0f;

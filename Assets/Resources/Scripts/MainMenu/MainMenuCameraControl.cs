@@ -24,7 +24,7 @@ public class MainMenuCameraControl : MonoBehaviour
         is_menu_start = false;
         currentVelocity = Vector3.zero;
         // initial camera pos
-        move_to = new Vector3(34, 10, 0);
+        move_to = transform.position;
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class MainMenuCameraControl : MonoBehaviour
             // scroll up: enlarge
             camera_scroll_delta = Input.GetAxis("Mouse ScrollWheel") * -30;
             Vector3 move_to_delta = new Vector3(x - camera_scroll_delta / 2, camera_scroll_delta, -z) * camera_moving_speed;
-            if (move_to_delta.y + move_to.y > 5 && move_to_delta.y + move_to.y < 15)
+            if (move_to_delta.y + move_to.y > 10 && move_to_delta.y + move_to.y < 30)
             {
                 move_to += move_to_delta;
             }

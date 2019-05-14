@@ -16,9 +16,6 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-        // var y = Mathf.Lerp(transform.position.y, player.transform.position.y, positionLerpPct);
-        // transform.position = new Vector3(player.transform.position.x, 1.5f, player.transform.position.z) + delta_position;
-        transform.position = player.transform.position + delta_position;        
+        //transform.position = player.transform.position + delta_position;
     }
 }

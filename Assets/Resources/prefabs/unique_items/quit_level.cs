@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class quit_level : MonoBehaviour
 {
+    private float original_gravity;
+
+    private void Start()
+    {
+        original_gravity = -Mathf.Abs(Physics.gravity.y);
+    }
 
     public void ExitLevelScene()
     {
-        // Scene scene = SceneManager.GetActiveScene();
         // quit to main menu without recording progress
-        // SceneManager.LoadScene("start_menu");
-        SceneManager.LoadScene("start_menu");
         Time.timeScale = 1;
+        Physics.gravity = new Vector3(0, original_gravity, 0);
+        SceneManager.LoadScene("start_menu");
     }
 }

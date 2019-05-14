@@ -31,6 +31,6 @@ public class StartGame : MonoBehaviour
         // move mainCamera to current level recorded in player status file
         // replace with an array of coordinates later
         int level_z = 30 - level_progress * 10;
-        mainCamera.GetComponent<MainMenuCameraControl>().move_to = new Vector3(27, 10, level_z);
+        mainCamera.GetComponent<MainMenuCameraControl>().move_to = new Vector3(27, 15, level_z);
     }
 }
