@@ -8,6 +8,8 @@ public class StartGame : MonoBehaviour
 
     private int level_progress;
     public void Start_Game() {
+        // mark game started, so player don't need to watch the main menu start again
+        PlayerPrefs.SetInt("GameFirstEnter", 1);
         // load player progress
         // init level_progress 0
         level_progress = 0;

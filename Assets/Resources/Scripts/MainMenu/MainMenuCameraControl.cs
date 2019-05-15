@@ -20,11 +20,24 @@ public class MainMenuCameraControl : MonoBehaviour
         camera_moving_speed = 0.5f;
 
         camera_scroll_delta = 0f;
-
-        is_menu_start = false;
-        currentVelocity = Vector3.zero;
+        
+        if (PlayerPrefs.GetInt("GameFirstEnter") == 1)
+        {
+            is_menu_start = true;
+            // if GameFirstEnter == 1, there must be a level_progress initialized by StartGame
+            // so no need for try catch
+            int level_progress = PlayerPrefs.GetInt("level_progress");
+            int level_z = 30 - level_progress * 10;
+            transform.position = new Vector3(27, 15, level_z);
+        }
+        else
+        {
+            is_menu_start = false;
+        }
         // initial camera pos
         move_to = transform.position;
+
+        currentVelocity = Vector3.zero;
     }
 
     // Update is called once per frame

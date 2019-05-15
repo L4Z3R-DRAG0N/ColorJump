@@ -14,11 +14,17 @@ public class finish_collide : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision player) {
-        // TODU: record level pass status here
-        PlayerPrefs.SetInt("level_progress", this_scene_code);
+        if (this_scene_code > PlayerPrefs.GetInt("level_progress"))
+        {
+            // record level pass status here
+            PlayerPrefs.SetInt("level_progress", this_scene_code);
+        }
         // reset all physics properties
         Time.timeScale = 1;
         Physics.gravity = new Vector3(0, original_gravity, 0);
+
+        // TODU: show level finished scene here
+
         // go back to main menu
         SceneManager.LoadScene("start_menu");
     }

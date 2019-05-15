@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145fec7d56931814fb3fc7643e5e8b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display_menu: 0
   UI: {fileID: 0}
+  display_exit_menu: 0
+  display_dead_menu: 0
 --- !u!1 &5564809914015102901
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -183,7 +184,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

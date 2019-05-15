@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour
 {
     Rigidbody player_rigid_body;
 
-    float original_gravity;
+    float original_gravity_y;
 
     Material normal_mat;
     Material accelerate_mat;
@@ -19,24 +19,32 @@ public class Controller : MonoBehaviour
     Material zerogravity_mat;
     Material timeslow_mat;
 
-    private int      block_mode_index;
-    private string[] block_mode_list;
-    private float[] block_mode_cooldown_time_list;
-    public bool      display_menu;
+    private int        block_mode_index;
+    private string[]   block_mode_list;
+    private Material[] block_mode_material_list;
+    private float[]    block_mode_cooldown_time_list;
+    private float[]    block_mode_cooldown_deplete_delta;
+    private float[]    block_mode_cooldown_restore_delta;
+    
     [SerializeField] GameObject UI;
     private GameObject exit_menu;
+    public bool display_exit_menu;
+    private GameObject dead_menu;
+    public bool display_dead_menu;
     private GameObject ingame_UI;
     private GameObject color_panels;
 
     private bool is_colliding;
-    private int  jump_count;
+
+    private Quaternion rotateTo;
+    private float rotateSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         player_rigid_body = GetComponent<Rigidbody>();
 
-        original_gravity = -Mathf.Abs(Physics.gravity.y);
+        original_gravity_y = -Mathf.Abs(Physics.gravity.y);
 
         normal_mat         = (Material) Resources.Load("Materials/CubeMat/normal",         typeof(Material));
         accelerate_mat     = (Material) Resources.Load("Materials/CubeMat/accelerate",     typeof(Material));
@@ -47,17 +55,24 @@ public class Controller : MonoBehaviour
         zerogravity_mat    = (Material) Resources.Load("Materials/CubeMat/zerogravity",    typeof(Material));
         timeslow_mat       = (Material) Resources.Load("Materials/CubeMat/timeslow",       typeof(Material));
 
-        block_mode_list = new string[]{"normal", "accelerate", "decelerate", "jump", "antigravity", "restoregravity", "zerogravity"};
-        block_mode_cooldown_time_list = new float[]{1, 1, 1, 1, 1, 1, 1};
+        block_mode_list = new string[]{"accelerate", "decelerate", "jump", "antigravity", "normal"};
+        block_mode_material_list = new Material[] { accelerate_mat, decelerate_mat, jump_mat, antigravity_mat, normal_mat };
+        block_mode_cooldown_time_list = new float[] {1, 1, 1, 1, 1};
+        block_mode_cooldown_deplete_delta = new float[] { 0.01f, 0.01f, 0.5f, 1f, 0f };
+        block_mode_cooldown_restore_delta = new float[] { 0.005f, 0.005f, 0.00f, 0.005f, 1f };
         block_mode_index = 0;
 
-        display_menu = false;
         exit_menu = UI.transform.Find("exit_menu").gameObject;
+        display_exit_menu = false;
+        dead_menu = UI.transform.Find("dead_menu").gameObject;
+        display_dead_menu = false;
         ingame_UI = UI.transform.Find("ingame_UI").gameObject;
         color_panels = ingame_UI.transform.Find("color_panels").gameObject;
 
         is_colliding = false;
-        jump_count = 0;
+
+        rotateTo = new Quaternion();
+        rotateSpeed = 0.2f;
 
         // init velocity
         player_rigid_body.velocity = new Vector3(10, 0, 0);
@@ -65,11 +80,21 @@ public class Controller : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (display_menu) {
+        if (display_exit_menu) {
             // exit_menu
             exit_menu.SetActive(true);
         }else{
             exit_menu.SetActive(false);
+        }
+
+        if (display_dead_menu)
+        {
+            // exit_menu
+            dead_menu.SetActive(true);
+        }
+        else
+        {
+            dead_menu.SetActive(false);
         }
         // DO NOT PUT THIS INTO FIXED UPDATE!!!
         // since pressing esc will pause the game (Time.timeScale = 0;) and FixedUpdte won't execute anymore
@@ -79,10 +104,14 @@ public class Controller : MonoBehaviour
     void FixedUpdate()
     {
         // do not go back
-        if (player_rigid_body.velocity.x < 0) {
-            player_rigid_body.velocity = new Vector3(0, 0, 0);
-        }
+        //if (player_rigid_body.velocity.x < 0) {
+        //    player_rigid_body.velocity = new Vector3(0, 0, 0);
+        //}
         RestoreCooldown();
+
+        // smooth rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, rotateSpeed);
+        ingame_UI.transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, rotateSpeed);
     }
 
     void OnCollisionEnter()
@@ -90,7 +119,7 @@ public class Controller : MonoBehaviour
         is_colliding = true;
         // jump_count = 0;
         // reset jump cooldown (1 is the max fuel)
-        block_mode_cooldown_time_list[3] = 1;
+        block_mode_cooldown_time_list[2] = 1;
     }
 
     void OnCollisionStay()
@@ -105,89 +134,83 @@ public class Controller : MonoBehaviour
 
     void InteractWithKeys() {
         if (Input.GetKeyDown(KeyCode.Escape)){
-            if (Time.timeScale != 0){
+            // if dead don't react to pause operation
+            if (display_dead_menu)
+            {
+                return;
+            }
+            if (!display_exit_menu){
                 //pause time
                 Time.timeScale = 0;
                 //display menu
-                display_menu = true;
+                display_exit_menu = true;
             }else{
                 //resume time
                 Time.timeScale = 1;
                 //hide menu
-                display_menu = false;
+                display_exit_menu = false;
             }
             
         }
 
+        if (display_dead_menu || display_exit_menu)
+        {
+            // do not react to input if any menu is shown
+            return;
+        }
         // if (is_colliding) {
 
         if (Input.GetKey(KeyCode.LeftShift)){
-            block_mode_index = 1;
-            if (block_mode_cooldown_time_list[block_mode_index] > 0) {
-                GetComponent<Renderer>().material = accelerate_mat;
-                block_mode_cooldown_time_list[block_mode_index] -= 0.01f;
-                Accelerate();
-            }
+            block_mode_index = 0;
+
         }
         if (Input.GetKey(KeyCode.LeftControl)){
-            block_mode_index = 2;
-            if (block_mode_cooldown_time_list[block_mode_index] > 0 && player_rigid_body.velocity.x > 10) {
-                GetComponent<Renderer>().material = decelerate_mat;            
-                block_mode_cooldown_time_list[block_mode_index] -= 0.01f;
-                Decelerate();
-            }
+            block_mode_index = 1;
         }
         // Jump (allow double jump)
         if (Input.GetKeyDown(KeyCode.Space)){
+            block_mode_index = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
             block_mode_index = 3;
-            if (block_mode_cooldown_time_list[block_mode_index] >= 0.5f) {
-                GetComponent<Renderer>().material = jump_mat;            
-                block_mode_cooldown_time_list[block_mode_index] -= 0.5f;
-                Jump();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.W)){
-            block_mode_index = 4;
-            if (block_mode_cooldown_time_list[block_mode_index] >= 1.0f) {
-                GetComponent<Renderer>().material = antigravity_mat;            
-                block_mode_cooldown_time_list[block_mode_index] -= 1f;
-                Antigravity();
-            }
-        }else if (Input.GetKeyDown(KeyCode.S)){
-            block_mode_index = 5;
-            if (block_mode_cooldown_time_list[block_mode_index] >= 1.0f) {
-                GetComponent<Renderer>().material = restoregravity_mat;            
-                block_mode_cooldown_time_list[block_mode_index] -= 1f;
-                Restoregravity();
-            }
         }else if (Input.GetKeyDown(KeyCode.Q)){
-            block_mode_index = 6;
-            if (block_mode_cooldown_time_list[block_mode_index] >= 1.0f) {
-                GetComponent<Renderer>().material = zerogravity_mat;            
-                block_mode_cooldown_time_list[block_mode_index] -= 1f;
-                Zerogravity();
+            block_mode_index = 4;
+        }
+        
+        if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+        {
+            GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+            block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+
+            switch (block_mode_index)
+            {
+                case 0:
+                    Accelerate();
+                    break;
+                case 1:
+                    Decelerate();
+                    break;
+                case 2:
+                    Jump();
+                    break;
+                case 3:
+                    Antigravity();
+                    break;
+
             }
         }
 
-            // if (Input.GetKey(KeyCode.None)) {
-            //     // original
-            //     GetComponent<Renderer>().material = normal_mat;
-            //     block_mode_index = 0;
-            // }
-        // } else {
-        //     // original
-        //     GetComponent<Renderer>().material = normal_mat;
-        //     block_mode_index = 0;
-        // }
-
-        
         RenderBlockModeUI(block_mode_index);
+        // restore normal mode, since normal mode is the last mode, index is length -1
+        block_mode_index = block_mode_list.Length - 1;
     }
 
     void RenderBlockModeUI(int block_mode_index) {
         // HighLightChoosenColor and render percentage
-        for (int i = 0; i < block_mode_list.Length; i ++) {
+        // -1: igore normal render, so length -1 (normal is the last mode in mode list)
+        for (int i = 0; i < block_mode_list.Length - 1; i ++) {
             if (i == block_mode_index) {
                 // highlight
                 color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(255,255,255,255);
@@ -201,14 +224,15 @@ public class Controller : MonoBehaviour
 
     void RestoreCooldown() {
         // status cooldown bars
-        for (int i = 0; i < block_mode_list.Length; i ++) {
+        // -1: igore normal render, so length -1 (normal is the last mode in mode list)
+        for (int i = 0; i < block_mode_list.Length - 1; i ++) {
             // render percentage
             color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().fillAmount = block_mode_cooldown_time_list[i];
             // cooldown
             if (block_mode_cooldown_time_list[i] >= 1){
                 block_mode_cooldown_time_list[i] = 1;
             } else {
-                block_mode_cooldown_time_list[i] += 0.001f;
+                block_mode_cooldown_time_list[i] += block_mode_cooldown_restore_delta[i];
             }
         }
     }
@@ -220,24 +244,26 @@ public class Controller : MonoBehaviour
         player_rigid_body.AddForce(new Vector3(-20, 0, 0));
     }
     void Jump() {
+        // clear falling velocity
+        player_rigid_body.velocity = new Vector3(player_rigid_body.velocity.x, 0, player_rigid_body.velocity.z);
         player_rigid_body.AddForce(40 * -Physics.gravity);
-        jump_count += 1;
     }
     void Antigravity() {
-        Physics.gravity = new Vector3(0, -original_gravity, 0);
-        transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
-        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
+        if (Physics.gravity.y > 0)
+        {
+            // restore normal gravity if gravity is reversed (y > 0)
+            rotateTo = Quaternion.Euler(new Vector3(0, 0, 0));
+            Physics.gravity = new Vector3(0, original_gravity_y, 0);
+        }
+        else if (Physics.gravity.y < 0)
+        {
+            // set anti gravity if gravity is normal (y < 0)
+            rotateTo = Quaternion.Euler(new Vector3(180, 0, 0));
+            Physics.gravity = new Vector3(0, -original_gravity_y, 0);
+        }
+        // do nothing if in zero gravity mode
     }
-    void Restoregravity() {
-        Physics.gravity = new Vector3(0, original_gravity, 0);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-    }
-    void Zerogravity() {
-        Physics.gravity = new Vector3(0, 0, 0);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        ingame_UI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-    }
+
     void Timeslow() {
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = 0.02f;

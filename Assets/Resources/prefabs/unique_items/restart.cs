@@ -27,7 +27,6 @@ public class restart : MonoBehaviour
     public void restart_level()
     {
         initialize();
-        Scene scene = SceneManager.GetActiveScene();
-        Application.LoadLevel(scene.name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
