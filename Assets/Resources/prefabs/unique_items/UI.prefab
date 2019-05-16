@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 3815382131799948186}
   - component: {fileID: 6840482312017243071}
   - component: {fileID: 4602249682158340089}
-  - component: {fileID: 7800828954384395838}
+  - component: {fileID: 1149118418592845482}
   m_Layer: 5
   m_Name: restart
   m_TagString: Untagged
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7800828954384395838}
+      - m_Target: {fileID: 1149118418592845482}
         m_MethodName: restart_level
         m_Mode: 1
         m_Arguments:
@@ -543,7 +543,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7800828954384395838
+--- !u!114 &1149118418592845482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -552,9 +552,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1542556808257126617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c972bfc46087e439c1f776bd480bcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &1590173911247491701
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +591,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -8.003953, y: 4.644269}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2962288030943548840
 CanvasRenderer:
@@ -622,15 +623,15 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
-    m_FontStyle: 0
+    m_FontSize: 20
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 20
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
@@ -720,7 +721,7 @@ GameObject:
   - component: {fileID: 1912709840799740983}
   - component: {fileID: 3300106508130686070}
   - component: {fileID: 3073036818426754395}
-  - component: {fileID: 2823152771322957003}
+  - component: {fileID: 5639235837186856585}
   m_Layer: 5
   m_Name: quitLevel
   m_TagString: Untagged
@@ -741,7 +742,7 @@ RectTransform:
   m_Children:
   - {fileID: 7589815138386199122}
   m_Father: {fileID: 1510154495273890218}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -828,8 +829,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2823152771322957003}
-        m_MethodName: ExitLevelScene
+      - m_Target: {fileID: 5639235837186856585}
+        m_MethodName: quit_level_without_save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -841,7 +842,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2823152771322957003
+--- !u!114 &5639235837186856585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -850,9 +851,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067666995658551776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bfb5de22b2a374a8162737d81aa119, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &2264473505559519366
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +867,7 @@ GameObject:
   - component: {fileID: 4007526329001061651}
   - component: {fileID: 8934039658746266123}
   - component: {fileID: 8587170695766876931}
-  - component: {fileID: 6421727419226836130}
+  - component: {fileID: 4995508887055039288}
   m_Layer: 5
   m_Name: restart
   m_TagString: Untagged
@@ -886,7 +888,7 @@ RectTransform:
   m_Children:
   - {fileID: 329529193903974114}
   m_Father: {fileID: 1510154495273890218}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -973,7 +975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6421727419226836130}
+      - m_Target: {fileID: 4995508887055039288}
         m_MethodName: restart_level
         m_Mode: 1
         m_Arguments:
@@ -986,7 +988,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6421727419226836130
+--- !u!114 &4995508887055039288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,9 +997,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2264473505559519366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c972bfc46087e439c1f776bd480bcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &2413415374747213132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1348,7 @@ GameObject:
   - component: {fileID: 3123129230396226685}
   - component: {fileID: 3123129230396226684}
   - component: {fileID: 3123129230396226687}
-  - component: {fileID: 3123129230396226674}
+  - component: {fileID: 6224661246053274265}
   m_Layer: 5
   m_Name: restart
   m_TagString: Untagged
@@ -1453,7 +1456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3123129230396226674}
+      - m_Target: {fileID: 6224661246053274265}
         m_MethodName: restart_level
         m_Mode: 1
         m_Arguments:
@@ -1466,7 +1469,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3123129230396226674
+--- !u!114 &6224661246053274265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1475,9 +1478,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3123129230396226681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c972bfc46087e439c1f776bd480bcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &3123129230443139712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2122,7 @@ GameObject:
   - component: {fileID: 3491586794299728849}
   - component: {fileID: 238438135017976535}
   - component: {fileID: 8506857728290364480}
-  - component: {fileID: 2076800521861157018}
+  - component: {fileID: 1736327601589769431}
   m_Layer: 5
   m_Name: quitLevel
   m_TagString: Untagged
@@ -2226,8 +2230,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076800521861157018}
-        m_MethodName: ExitLevelScene
+      - m_Target: {fileID: 1736327601589769431}
+        m_MethodName: quit_level_without_save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2239,7 +2243,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2076800521861157018
+--- !u!114 &1736327601589769431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2248,9 +2252,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4516455606262377094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bfb5de22b2a374a8162737d81aa119, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &5124492068623145143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,7 +2268,7 @@ GameObject:
   - component: {fileID: 5651894703872195155}
   - component: {fileID: 309008419277406612}
   - component: {fileID: 1584617196869936191}
-  - component: {fileID: 3379745699560873639}
+  - component: {fileID: 232832503083417998}
   m_Layer: 5
   m_Name: quitLevel
   m_TagString: Untagged
@@ -2371,8 +2376,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3379745699560873639}
-        m_MethodName: ExitLevelScene
+      - m_Target: {fileID: 232832503083417998}
+        m_MethodName: quit_level_without_save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2384,7 +2389,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3379745699560873639
+--- !u!114 &232832503083417998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2393,9 +2398,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5124492068623145143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bfb5de22b2a374a8162737d81aa119, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &5401570001383183658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,9 +2747,9 @@ RectTransform:
   m_Children:
   - {fileID: 7311945661875162846}
   - {fileID: 1459075409459377377}
+  - {fileID: 3906584310419481905}
   - {fileID: 1722940247277496681}
   - {fileID: 5901091748369261303}
-  - {fileID: 3906584310419481905}
   - {fileID: 3989375070451163234}
   - {fileID: 8234405856622792161}
   m_Father: {fileID: 3123129229756119995}
@@ -3255,7 +3261,7 @@ GameObject:
   - component: {fileID: 6200175744192820568}
   - component: {fileID: 5215703767924474273}
   - component: {fileID: 7592800003613967065}
-  - component: {fileID: 4535095660494993420}
+  - component: {fileID: 8596632880578815426}
   m_Layer: 5
   m_Name: nextLevel
   m_TagString: Untagged
@@ -3276,7 +3282,7 @@ RectTransform:
   m_Children:
   - {fileID: 8452924021231415137}
   m_Father: {fileID: 1510154495273890218}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3363,8 +3369,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4535095660494993420}
-        m_MethodName: ExitLevelScene
+      - m_Target: {fileID: 8596632880578815426}
+        m_MethodName: next_level
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3376,7 +3382,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4535095660494993420
+--- !u!114 &8596632880578815426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3385,9 +3391,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7379566550251664038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bfb5de22b2a374a8162737d81aa119, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9af499f82ad8043aecd30d40d0e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_level_code: 
 --- !u!1 &7383562646976206814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,7 +4023,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278224127
-  m_fontColor: {r: 1, g: 0.5214751, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

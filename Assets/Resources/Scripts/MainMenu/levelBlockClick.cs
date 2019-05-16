@@ -8,15 +8,48 @@ public class levelBlockClick : MonoBehaviour
     private Color original_color;
     private GameObject label;
     public string scene_index;
+
+    private Material level_future;
+    private Material level_now;
+    private Material level_passed;
+
+    private bool clickable;
     void Start()
     {
-        original_color = transform.GetComponent<MeshRenderer>().material.color;
         label = transform.GetChild(0).gameObject;
+
+        level_future = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_future", typeof(Material));
+        level_now = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_now", typeof(Material));
+        level_passed = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_passed", typeof(Material));
+
+        clickable = false;
+        // render block as passed if
+        if (PlayerPrefs.GetInt("level_progress") > (int)float.Parse(scene_index))
+        {
+            gameObject.GetComponent<Renderer>().material = level_passed;
+            clickable = true;
+        }
+        // render block as not passed if
+        else if (PlayerPrefs.GetInt("level_progress") < (int)float.Parse(scene_index))
+        {
+            gameObject.GetComponent<Renderer>().material = level_future;
+        }
+        // render block as currect
+        else
+        {
+            gameObject.GetComponent<Renderer>().material = level_now;
+            clickable = true;
+        }
+        original_color = gameObject.GetComponent<MeshRenderer>().material.color;
         // init hide label
         // label.SetActive(false);
     }
     void OnMouseDown()
     {
+        if (!clickable)
+        {
+            return;
+        }
         try
         {
             SceneManager.LoadScene("level" + scene_index);
@@ -28,16 +61,23 @@ public class levelBlockClick : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Color new_color = original_color;
-        new_color.b = original_color.b + 10;
-        transform.GetComponent<MeshRenderer>().material.color = new_color;
+        if (!clickable)
+        {
+            return;
+        }
+        Color new_color = new Color(1, 1, 0);
+        gameObject.GetComponent<MeshRenderer>().material.color = new_color;
         // show label
         // label.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        transform.GetComponent<MeshRenderer>().material.color = original_color;
+        if (!clickable)
+        {
+            return;
+        }
+        gameObject.GetComponent<MeshRenderer>().material.color = original_color;
         // hide label when mouse leave
         // label.SetActive(false);
     }

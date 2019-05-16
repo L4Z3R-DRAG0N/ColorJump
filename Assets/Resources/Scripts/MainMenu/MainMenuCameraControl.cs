@@ -13,9 +13,14 @@ public class MainMenuCameraControl : MonoBehaviour
     private Vector3 currentVelocity;
     public bool is_menu_start;
     public Vector3 move_to;
+
     // Start is called before the first frame update
     void Start()
     {
+        // ensure that the game runs as expected even if the game crashes last time
+        // initialize timescale
+        Time.timeScale = 1;
+
         x = z = 0;
         camera_moving_speed = 0.5f;
 

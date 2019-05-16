@@ -47,7 +47,8 @@ public class Controller : MonoBehaviour
     private Quaternion rotateTo;
     private float rotateSpeed;
 
-    public float start_time;
+    private float camera_fov_target;
+    private float camera_fov_delta;
 
     // Start is called before the first frame update
     void Start()
@@ -94,11 +95,11 @@ public class Controller : MonoBehaviour
         rotateTo = new Quaternion();
         rotateSpeed = 0.2f;
 
+        camera_fov_target = 60;
+        camera_fov_delta = 0.1f;
+
         // init velocity
         player_rigid_body.velocity = new Vector3(10, 0, 0);
-
-        // timing start
-        start_time = Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -125,6 +126,10 @@ public class Controller : MonoBehaviour
         // smooth rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, rotateSpeed);
         ingame_UI.transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, rotateSpeed);
+
+        // acceleration fov effect
+        camera_fov_target = 60 + Mathf.Abs(GetComponent<Rigidbody>().velocity.x) / 3;
+        Camera.main.GetComponent<Camera>().fieldOfView = Mathf.Lerp(Camera.main.GetComponent<Camera>().fieldOfView, camera_fov_target, camera_fov_delta);
     }
 
     void OnCollisionEnter()
@@ -173,10 +178,12 @@ public class Controller : MonoBehaviour
         }
         // if (is_colliding) {
 
+        // accelerate
         if (Input.GetKey(KeyCode.LeftShift)){
             block_mode_index = 0;
 
         }
+        // decelerate
         if (Input.GetKey(KeyCode.LeftControl)){
             block_mode_index = 1;
         }
@@ -184,12 +191,10 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             block_mode_index = 2;
         }
-
+        // antigravity
         if (Input.GetKeyDown(KeyCode.W))
         {
             block_mode_index = 3;
-        }else if (Input.GetKeyDown(KeyCode.Q)){
-            block_mode_index = 4;
         }
         
         if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])

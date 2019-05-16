@@ -127,6 +127,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   display_exit_menu: 0
   display_dead_menu: 0
+  display_pass_menu: 0
 --- !u!1 &5564809914015102901
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,8 +154,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564809914015102901}
-  m_LocalRotation: {x: 0.0028460585, y: -0.3931992, z: -0.0009771474, w: -0.91944844}
-  m_LocalPosition: {x: -11.961151, y: 3.1375613, z: -13.748638}
+  m_LocalRotation: {x: 0.02917542, y: 0.35842055, z: -0.017792577, w: 0.9329346}
+  m_LocalPosition: {x: -12.071106, y: 3.8224144, z: -16.595337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528523901682231078}
@@ -185,7 +186,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
