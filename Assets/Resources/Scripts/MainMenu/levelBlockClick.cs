@@ -7,7 +7,7 @@ public class levelBlockClick : MonoBehaviour
 {
     private Color original_color;
     private GameObject label;
-    public string scene_name;
+    public string scene_index;
     void Start()
     {
         original_color = transform.GetComponent<MeshRenderer>().material.color;
@@ -19,7 +19,7 @@ public class levelBlockClick : MonoBehaviour
     {
         try
         {
-            SceneManager.LoadScene(scene_name);
+            SceneManager.LoadScene("level" + scene_index);
         } catch
         {
 

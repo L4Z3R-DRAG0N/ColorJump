@@ -56,6 +56,11 @@ public class MainMenuCameraControl : MonoBehaviour
             {
                 move_to += move_to_delta;
             }
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                move_to = new Vector3(-6.5f, 15f, 0f);
+            }
         }
         // smoothly move to target pos, ref currentVelocity is like a pointer that updates each time when the func is called
         transform.position = Vector3.SmoothDamp(transform.position, move_to, ref currentVelocity, 0.1f);

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Sprites;
+using TMPro;
 
 public class Controller : MonoBehaviour
 {
@@ -26,18 +24,30 @@ public class Controller : MonoBehaviour
     private float[]    block_mode_cooldown_deplete_delta;
     private float[]    block_mode_cooldown_restore_delta;
     
+
     [SerializeField] GameObject UI;
+
     private GameObject exit_menu;
     public bool display_exit_menu;
+
     private GameObject dead_menu;
     public bool display_dead_menu;
+
+    private GameObject pass_menu;
+    public bool display_pass_menu;
+
     private GameObject ingame_UI;
     private GameObject color_panels;
+    private GameObject color_labels;
+    private GameObject highlighter;
+
 
     private bool is_colliding;
 
     private Quaternion rotateTo;
     private float rotateSpeed;
+
+    public float start_time;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +65,7 @@ public class Controller : MonoBehaviour
         zerogravity_mat    = (Material) Resources.Load("Materials/CubeMat/zerogravity",    typeof(Material));
         timeslow_mat       = (Material) Resources.Load("Materials/CubeMat/timeslow",       typeof(Material));
 
+
         block_mode_list = new string[]{"accelerate", "decelerate", "jump", "antigravity", "normal"};
         block_mode_material_list = new Material[] { accelerate_mat, decelerate_mat, jump_mat, antigravity_mat, normal_mat };
         block_mode_cooldown_time_list = new float[] {1, 1, 1, 1, 1};
@@ -62,12 +73,21 @@ public class Controller : MonoBehaviour
         block_mode_cooldown_restore_delta = new float[] { 0.005f, 0.005f, 0.00f, 0.005f, 1f };
         block_mode_index = 0;
 
+
         exit_menu = UI.transform.Find("exit_menu").gameObject;
         display_exit_menu = false;
+
         dead_menu = UI.transform.Find("dead_menu").gameObject;
         display_dead_menu = false;
+
+        pass_menu = UI.transform.Find("pass_menu").gameObject;
+        display_pass_menu = false;
+
         ingame_UI = UI.transform.Find("ingame_UI").gameObject;
         color_panels = ingame_UI.transform.Find("color_panels").gameObject;
+        color_labels = ingame_UI.transform.Find("color_labels").gameObject;
+        highlighter = ingame_UI.transform.Find("highlighter").gameObject;
+
 
         is_colliding = false;
 
@@ -76,26 +96,19 @@ public class Controller : MonoBehaviour
 
         // init velocity
         player_rigid_body.velocity = new Vector3(10, 0, 0);
+
+        // timing start
+        start_time = Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update() {
-        if (display_exit_menu) {
-            // exit_menu
-            exit_menu.SetActive(true);
-        }else{
-            exit_menu.SetActive(false);
-        }
-
-        if (display_dead_menu)
-        {
-            // exit_menu
-            dead_menu.SetActive(true);
-        }
-        else
-        {
-            dead_menu.SetActive(false);
-        }
+        // exit_menu
+        exit_menu.SetActive(display_exit_menu);
+        // dead_menu
+        dead_menu.SetActive(display_dead_menu);
+        // pass_menu
+        pass_menu.SetActive(display_pass_menu);
         // DO NOT PUT THIS INTO FIXED UPDATE!!!
         // since pressing esc will pause the game (Time.timeScale = 0;) and FixedUpdte won't execute anymore
         InteractWithKeys();
@@ -135,7 +148,7 @@ public class Controller : MonoBehaviour
     void InteractWithKeys() {
         if (Input.GetKeyDown(KeyCode.Escape)){
             // if dead don't react to pause operation
-            if (display_dead_menu)
+            if (display_dead_menu || display_pass_menu)
             {
                 return;
             }
@@ -153,7 +166,7 @@ public class Controller : MonoBehaviour
             
         }
 
-        if (display_dead_menu || display_exit_menu)
+        if (display_dead_menu || display_exit_menu || display_pass_menu)
         {
             // do not react to input if any menu is shown
             return;
@@ -213,10 +226,13 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < block_mode_list.Length - 1; i ++) {
             if (i == block_mode_index) {
                 // highlight
-                color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(255,255,255,255);
+                color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                color_labels.transform.Find(block_mode_list[i] + "_label").gameObject.GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1);
+                highlighter.transform.localPosition = color_labels.transform.localPosition + color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.transform.localPosition;
             } else {
                 // dim
-                color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.196f);
+                color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+                color_labels.transform.Find(block_mode_list[i] + "_label").gameObject.GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
             }
             
         }
@@ -267,5 +283,10 @@ public class Controller : MonoBehaviour
     void Timeslow() {
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = 0.02f;
+    }
+
+    public GameObject getTimeDisplay()
+    {
+        return pass_menu.transform.Find("time").gameObject;
     }
 }
