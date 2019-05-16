@@ -1430,15 +1430,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8596632880578815426, guid: b205e3d39fbd33144b0783faeacc936e,
-        type: 3}
-      propertyPath: next_level_code
-      value: 001
-      objectReference: {fileID: 0}
     - target: {fileID: 3123129229756119994, guid: b205e3d39fbd33144b0783faeacc936e,
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596632880578815426, guid: b205e3d39fbd33144b0783faeacc936e,
+        type: 3}
+      propertyPath: next_level_code
+      value: 001
       objectReference: {fileID: 0}
     - target: {fileID: 3123129229756119995, guid: b205e3d39fbd33144b0783faeacc936e,
         type: 3}
