@@ -2245,7 +2245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3123129229361246561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2667,9 +2667,11 @@ MonoBehaviour:
 
     Copyright 2019:
 
-    webDrag0n
+    coding:           webDrag0n
 
-    Lazer_Potato'
+    level design:   Lazer_Potato
+
+    art design:      zbn'
 --- !u!1 &3143841771602725598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5314,7 +5316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510154495273890218
 RectTransform:
   m_ObjectHideFlags: 0

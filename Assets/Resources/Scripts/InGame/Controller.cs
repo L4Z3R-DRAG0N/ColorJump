@@ -30,11 +30,15 @@ public class Controller : MonoBehaviour
     private GameObject exit_menu;
     public bool display_exit_menu;
 
+    private GameObject setting_menu;
+    public bool display_setting_menu;
+
     private GameObject dead_menu;
     public bool display_dead_menu;
 
     private GameObject pass_menu;
     public bool display_pass_menu;
+
 
     private GameObject ingame_UI;
     private GameObject color_panels;
@@ -78,6 +82,9 @@ public class Controller : MonoBehaviour
         exit_menu = UI.transform.Find("exit_menu").gameObject;
         display_exit_menu = false;
 
+        setting_menu = UI.transform.Find("setting_menu").gameObject;
+        display_setting_menu = false;
+
         dead_menu = UI.transform.Find("dead_menu").gameObject;
         display_dead_menu = false;
 
@@ -106,6 +113,8 @@ public class Controller : MonoBehaviour
     void Update() {
         // exit_menu
         exit_menu.SetActive(display_exit_menu);
+        // setting_menu
+        setting_menu.SetActive(display_setting_menu);
         // dead_menu
         dead_menu.SetActive(display_dead_menu);
         // pass_menu
@@ -152,8 +161,8 @@ public class Controller : MonoBehaviour
 
     void InteractWithKeys() {
         if (Input.GetKeyDown(KeyCode.Escape)){
-            // if dead don't react to pause operation
-            if (display_dead_menu || display_pass_menu)
+            // if ... don't react to ESC operation
+            if (display_dead_menu || display_setting_menu || display_pass_menu)
             {
                 return;
             }
@@ -171,7 +180,7 @@ public class Controller : MonoBehaviour
             
         }
 
-        if (display_dead_menu || display_exit_menu || display_pass_menu)
+        if (display_dead_menu || display_setting_menu || display_exit_menu || display_pass_menu)
         {
             // do not react to input if any menu is shown
             return;

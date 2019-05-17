@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class finish_collide : MonoBehaviour
 {
-    [SerializeField] int this_scene_code;
+    public int this_scene_code;
     private float original_gravity;
 
     private float end_time;

@@ -62,7 +62,7 @@ public class ui_interact : MonoBehaviour
     
     public void open_settings()
     {
-        setting_menu.SetActive(true);
+        GameObject.Find("Player").GetComponent<Controller>().display_setting_menu = true;
     }
 
     public void apply_settings()
@@ -72,6 +72,6 @@ public class ui_interact : MonoBehaviour
 
     public void discard_settings()
     {
-        setting_menu.SetActive(false);
+        GameObject.Find("Player").GetComponent<Controller>().display_setting_menu = false;
     }
 }
