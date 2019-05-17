@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: b7662a0e081e02644bc4798717a4b862
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans S Chinese
+  fontNames:
+  - Noto Sans S Chinese
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50f0bd62952ee7a4aaba46568aee0cf1, type: 3}
+  - {fileID: 12800000, guid: 0366b95338b58cd42929cb7c6a92fece, type: 3}
+  - {fileID: 12800000, guid: 05ec854817f510444aee53be6bab11cd, type: 3}
+  - {fileID: 12800000, guid: 86dabbfa5da5fda448d256081bb7d19d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

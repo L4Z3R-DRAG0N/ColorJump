@@ -14,12 +14,17 @@ public class MainMenuCameraControl : MonoBehaviour
     public bool is_menu_start;
     public Vector3 move_to;
 
+    public GameObject[] level_block_list;
+
     // Start is called before the first frame update
     void Start()
     {
         // ensure that the game runs as expected even if the game crashes last time
         // initialize timescale
         Time.timeScale = 1;
+
+        // get level_block list in order to fast travel camera
+        level_block_list = GameObject.FindGameObjectsWithTag("level_block");
 
         x = z = 0;
         camera_moving_speed = 0.5f;
@@ -32,8 +37,8 @@ public class MainMenuCameraControl : MonoBehaviour
             // if GameFirstEnter == 1, there must be a level_progress initialized by StartGame
             // so no need for try catch
             int level_progress = PlayerPrefs.GetInt("level_progress");
-            int level_z = 30 - level_progress * 10;
-            transform.position = new Vector3(27, 15, level_z);
+            Vector3 target_level_block_pos = level_block_list[level_progress].transform.position;
+            transform.position = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
         }
         else
         {
@@ -43,6 +48,7 @@ public class MainMenuCameraControl : MonoBehaviour
         move_to = transform.position;
 
         currentVelocity = Vector3.zero;
+
     }
 
     // Update is called once per frame

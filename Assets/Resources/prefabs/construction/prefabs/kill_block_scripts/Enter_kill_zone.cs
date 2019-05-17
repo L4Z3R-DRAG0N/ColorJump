@@ -28,7 +28,6 @@ public class Enter_kill_zone : MonoBehaviour
             return;
         }
         // TODU: replace this with a death scene in the future
-        Debug.Log("kill");
         obj.GetComponent<Controller>().display_dead_menu = true;
         Time.timeScale = 0;
     }

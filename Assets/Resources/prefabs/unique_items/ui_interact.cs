@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class ui_interact : MonoBehaviour
 {
     private float original_gravity;
-    // 001, 002, ... etc
-    public string next_level_code;
+    public GameObject setting_menu;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +44,34 @@ public class ui_interact : MonoBehaviour
     {
         Time.timeScale = 1;
         Physics.gravity = new Vector3(0, original_gravity, 0);
+        
+        // 001, 002, ... etc
+        string next_level_code = "" + PlayerPrefs.GetInt("level_progress");
+        Debug.Log(next_level_code);
+        // fill the missing 0s
+        for (int i = 0; i < 3 - next_level_code.Length + 1; i++)
+        {
+            next_level_code = "0" + next_level_code;
+        }
+        
+        
         SceneManager.LoadScene("level" + next_level_code);
+    }
+
+
+    
+    public void open_settings()
+    {
+        setting_menu.SetActive(true);
+    }
+
+    public void apply_settings()
+    {
+
+    }
+
+    public void discard_settings()
+    {
+        setting_menu.SetActive(false);
     }
 }

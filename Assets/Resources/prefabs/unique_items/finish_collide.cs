@@ -47,10 +47,12 @@ public class finish_collide : MonoBehaviour
         {
             collide.gameObject.GetComponent<Controller>().getTimeDisplay().GetComponent<Text>().text = "time used: " + end_time.ToString() + "s";
         }
-        if (this_scene_code > PlayerPrefs.GetInt("level_progress"))
+        if (this_scene_code + 1 > PlayerPrefs.GetInt("level_progress"))
         {
             // record level pass status here
-            PlayerPrefs.SetInt("level_progress", this_scene_code);
+            // next level became available
+            PlayerPrefs.SetInt("level_progress", this_scene_code + 1);
+            Debug.Log(PlayerPrefs.GetInt("level_progress"));
         }
 
         collide.gameObject.GetComponent<Controller>().display_pass_menu = true;
