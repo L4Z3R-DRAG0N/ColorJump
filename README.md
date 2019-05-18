@@ -67,6 +67,14 @@
 
 ![text](/README.assets/InGameScreenShoot.png)
 
+制作人员名单：
+
+* 编程: @webDrag0n
+* 关卡设计: @Lazer_Potato
+* 美术设计: @Eoskz
+
+感谢 @CaoJamie @Henry Hu 测试游戏并提出改进意见
+
 ## 更新日志
 
 ### [ 2019.5.18 | 21:31 ]
