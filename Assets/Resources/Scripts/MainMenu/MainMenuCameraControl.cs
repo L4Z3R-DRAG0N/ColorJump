@@ -37,8 +37,17 @@ public class MainMenuCameraControl : MonoBehaviour
             // if GameFirstEnter == 1, there must be a level_progress initialized by StartGame
             // so no need for try catch
             int level_progress = PlayerPrefs.GetInt("level_progress");
-            Vector3 target_level_block_pos = level_block_list[level_progress].transform.position;
-            transform.position = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
+            // interate through the level block list and try to find the one that matchs level_progress
+            for (int i = 0; i < level_block_list.Length; i++)
+            {
+                Transform current_level_block_transform = level_block_list[i].transform;
+                // if match
+                if (int.Parse(current_level_block_transform.name.Substring(5, 3)) == level_progress)
+                {
+                    Vector3 target_level_block_pos = current_level_block_transform.position;
+                    transform.position = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
+                }
+            }
         }
         else
         {

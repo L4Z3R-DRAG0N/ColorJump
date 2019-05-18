@@ -7,7 +7,7 @@ public class levelBlockClick : MonoBehaviour
 {
     private Color original_color;
     private GameObject label;
-    public string scene_index;
+    private string scene_index;
 
     private Material level_future;
     private Material level_now;
@@ -18,6 +18,8 @@ public class levelBlockClick : MonoBehaviour
     {
         label = transform.GetChild(0).gameObject;
 
+        scene_index = transform.name.Substring(5, 3);
+
         level_future = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_future", typeof(Material));
         level_now = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_now", typeof(Material));
         level_passed = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_passed", typeof(Material));
@@ -26,13 +28,13 @@ public class levelBlockClick : MonoBehaviour
         // the next level of current finished level should also be clickable
         int largest_clickable = PlayerPrefs.GetInt("level_progress");
         // render block as passed if
-        if (largest_clickable > (int)float.Parse(scene_index))
+        if (largest_clickable > int.Parse(scene_index))
         {
             gameObject.GetComponent<Renderer>().material = level_passed;
             clickable = true;
         }
         // render block as not passed if
-        else if (largest_clickable < (int)float.Parse(scene_index))
+        else if (largest_clickable < int.Parse(scene_index))
         {
             gameObject.GetComponent<Renderer>().material = level_future;
         }
