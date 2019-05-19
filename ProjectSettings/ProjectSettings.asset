@@ -660,10 +660,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: f64fbce5-b707-4548-906d-6bd97520bfa7
+  cloudProjectId: 84b01176-3a63-467e-89f8-1d78b607c93f
   framebufferDepthMemorylessMode: 0
-  projectName: Color Jump
-  organizationId: linzexin
+  projectName: ColorJump
+  organizationId: lazer_potato
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
