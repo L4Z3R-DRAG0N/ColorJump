@@ -27,6 +27,8 @@ public class Controller : MonoBehaviour
 
     [SerializeField] GameObject UI;
 
+    public float init_velocity;
+
     private GameObject exit_menu;
     public bool display_exit_menu;
 
@@ -106,7 +108,7 @@ public class Controller : MonoBehaviour
         camera_fov_delta = 0.1f;
 
         // init velocity
-        player_rigid_body.velocity = new Vector3(10, 0, 0);
+        player_rigid_body.velocity = new Vector3(init_velocity, 0, 0);
     }
 
     // Update is called once per frame
@@ -268,10 +270,10 @@ public class Controller : MonoBehaviour
     }
 
     void Accelerate() {
-        player_rigid_body.AddForce(new Vector3(20, 0, 0));
+        player_rigid_body.AddForce(new Vector3(30, 0, 0));
     }
     void Decelerate() {
-        player_rigid_body.AddForce(new Vector3(-20, 0, 0));
+        player_rigid_body.AddForce(new Vector3(-30, 0, 0));
     }
     void Jump() {
         // clear falling velocity

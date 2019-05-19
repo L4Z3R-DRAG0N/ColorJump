@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
+  init_velocity: 10
   display_exit_menu: 0
+  display_setting_menu: 0
   display_dead_menu: 0
   display_pass_menu: 0
 --- !u!1 &5564809914015102901

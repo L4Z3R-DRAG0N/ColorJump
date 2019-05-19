@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: 4
 --- !u!114 &64961537
 MonoBehaviour:
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: 10
 --- !u!65 &157290396
 BoxCollider:
@@ -713,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: -10
 --- !u!65 &451648248
 BoxCollider:
@@ -1197,6 +1200,11 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 2048346894}
+    - target: {fileID: 1528523901682231098, guid: 16c596c42efa83945ad5feeee373ec0c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4424559763339001311, guid: 16c596c42efa83945ad5feeee373ec0c,
         type: 3}
       propertyPath: m_Name
@@ -1261,11 +1269,6 @@ PrefabInstance:
         type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528523901682231098, guid: 16c596c42efa83945ad5feeee373ec0c,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c596c42efa83945ad5feeee373ec0c, type: 3}
@@ -1468,6 +1471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: -10
 --- !u!65 &1118926794
 BoxCollider:
@@ -1575,6 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: -8
 --- !u!114 &1295953759
 MonoBehaviour:
@@ -1786,6 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cdfa9a0a8619647829cdb128111e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  use_rotate: 1
   rotate_speed: 8
 --- !u!114 &1466683889
 MonoBehaviour:
