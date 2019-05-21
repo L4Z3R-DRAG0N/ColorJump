@@ -200,46 +200,51 @@ public class Controller : MonoBehaviour
         // if (is_colliding) {
 
         // accelerate
-        if (Input.GetKey(KeyCode.LeftShift)){
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
             block_mode_index = 0;
-
+            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            {
+                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                Accelerate();
+            }
         }
         // decelerate
-        if (Input.GetKey(KeyCode.LeftControl)){
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
             block_mode_index = 1;
+            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            {
+                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                Decelerate();
+            }
         }
         // Jump (allow double jump)
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             block_mode_index = 2;
+            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            {
+                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                Jump();
+            }
         }
         // antigravity
         if (Input.GetKeyDown(KeyCode.W))
         {
             block_mode_index = 3;
-        }
-        
-        if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
-        {
-            GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-            block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
-
-            switch (block_mode_index)
+            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
             {
-                case 0:
-                    Accelerate();
-                    break;
-                case 1:
-                    Decelerate();
-                    break;
-                case 2:
-                    Jump();
-                    break;
-                case 3:
-                    Antigravity();
-                    break;
-
+                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                Antigravity();
             }
         }
+
+            
 
         RenderBlockModeUI(block_mode_index);
         // restore normal mode, since normal mode is the last mode, index is length -1
