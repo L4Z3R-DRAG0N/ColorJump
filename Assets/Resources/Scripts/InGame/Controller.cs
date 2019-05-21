@@ -155,6 +155,8 @@ public class Controller : MonoBehaviour
     void OnCollisionStay()
     {
         is_colliding = true;
+        // reset jump cooldown (1 is the max fuel)
+        block_mode_cooldown_time_list[2] = 1;
     }
 
     void OnCollisionExit()
