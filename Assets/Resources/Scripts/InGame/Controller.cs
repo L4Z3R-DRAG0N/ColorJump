@@ -123,11 +123,12 @@ public class Controller : MonoBehaviour
         pass_menu.SetActive(display_pass_menu);
         // DO NOT PUT THIS INTO FIXED UPDATE!!!
         // since pressing esc will pause the game (Time.timeScale = 0;) and FixedUpdte won't execute anymore
-        InteractWithKeys();
+        EscapeDetect();
     }
 
     void FixedUpdate()
     {
+        InteractWithKeys();
         // do not go back
         //if (player_rigid_body.velocity.x < 0) {
         //    player_rigid_body.velocity = new Vector3(0, 0, 0);
@@ -161,27 +162,36 @@ public class Controller : MonoBehaviour
         is_colliding = false;
     }
 
-    void InteractWithKeys() {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+    void EscapeDetect()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             // if ... don't react to ESC operation
             if (display_dead_menu || display_setting_menu || display_pass_menu)
             {
                 return;
             }
-            if (!display_exit_menu){
+            if (!display_exit_menu)
+            {
                 //pause time
                 Time.timeScale = 0;
                 //display menu
                 display_exit_menu = true;
-            }else{
+            }
+            else
+            {
                 //resume time
                 Time.timeScale = 1;
                 //hide menu
                 display_exit_menu = false;
             }
-            
+
         }
 
+    }
+
+    void InteractWithKeys() {
         if (display_dead_menu || display_setting_menu || display_exit_menu || display_pass_menu)
         {
             // do not react to input if any menu is shown

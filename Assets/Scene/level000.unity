@@ -1361,11 +1361,6 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 8171934813706876822}
-    - target: {fileID: 1528523901682231097, guid: 16c596c42efa83945ad5feeee373ec0c,
-        type: 3}
-      propertyPath: init_velocity
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c596c42efa83945ad5feeee373ec0c, type: 3}
 --- !u!1001 &3218173967068155589
