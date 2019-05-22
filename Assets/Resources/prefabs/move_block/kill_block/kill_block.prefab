@@ -140,6 +140,8 @@ MonoBehaviour:
   min_length: 5
   max_length: 5
   resize_speed: 2
+  is_infinite_resize: 1
+  total_resize_times: 0
 --- !u!114 &5899822804243748468
 MonoBehaviour:
   m_ObjectHideFlags: 0
