@@ -1723,6 +1723,8 @@ MonoBehaviour:
   min_length: 5
   max_length: 5
   resize_speed: 0
+  is_infinite_resize: 0
+  total_resize_times: 0
 --- !u!1 &497716793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,12 +2092,12 @@ PrefabInstance:
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73
+      value: 71.5
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -2145,7 +2147,7 @@ PrefabInstance:
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -3115,6 +3117,8 @@ MonoBehaviour:
   min_length: 2
   max_length: 5
   resize_speed: 5
+  is_infinite_resize: 0
+  total_resize_times: 0
 --- !u!114 &847698433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3518,6 +3522,8 @@ MonoBehaviour:
   min_length: 2
   max_length: 5
   resize_speed: 5
+  is_infinite_resize: 0
+  total_resize_times: 0
 --- !u!114 &1079881688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,6 +4263,8 @@ MonoBehaviour:
   min_length: 2
   max_length: 5
   resize_speed: 5
+  is_infinite_resize: 0
+  total_resize_times: 0
 --- !u!114 &1450127912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4750,8 +4758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   use_resize: 1
   min_length: 1
-  max_length: 5
-  resize_speed: 4
+  max_length: 3
+  resize_speed: 3
+  is_infinite_resize: 1
+  total_resize_times: 0
 --- !u!114 &1537681499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4891,8 +4901,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   use_resize: 1
   min_length: 1
-  max_length: 5
-  resize_speed: 4
+  max_length: 3
+  resize_speed: 3
+  is_infinite_resize: 1
+  total_resize_times: 0
 --- !u!114 &1540152095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5134,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -5184,7 +5196,7 @@ PrefabInstance:
     - target: {fileID: 5899822804243748466, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -5229,7 +5241,12 @@ PrefabInstance:
     - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: max_length
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -5442,6 +5459,8 @@ MonoBehaviour:
   min_length: 2
   max_length: 5
   resize_speed: 5
+  is_infinite_resize: 0
+  total_resize_times: 0
 --- !u!114 &1669451629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6001,8 +6020,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   use_resize: 1
   min_length: 1
-  max_length: 5
-  resize_speed: 4
+  max_length: 3
+  resize_speed: 3
+  is_infinite_resize: 1
+  total_resize_times: 0
 --- !u!114 &1857827838
 MonoBehaviour:
   m_ObjectHideFlags: 0
