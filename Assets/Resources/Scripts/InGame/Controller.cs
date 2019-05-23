@@ -200,6 +200,17 @@ public class Controller : MonoBehaviour
             return;
         }
         // if (is_colliding) {
+        // Jump (allow double jump)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            block_mode_index = 2;
+            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            {
+                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                Jump();
+            }
+        }
 
         // accelerate
         if (Input.GetKey(KeyCode.LeftShift))
@@ -223,17 +234,7 @@ public class Controller : MonoBehaviour
                 Decelerate();
             }
         }
-        // Jump (allow double jump)
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            block_mode_index = 2;
-            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
-            {
-                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
-                Jump();
-            }
-        }
+
         // antigravity
         if (Input.GetKeyDown(KeyCode.W))
         {
