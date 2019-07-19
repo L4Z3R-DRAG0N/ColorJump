@@ -133,7 +133,6 @@ public class Controller : MonoBehaviour
         //if (player_rigid_body.velocity.x < 0) {
         //    player_rigid_body.velocity = new Vector3(0, 0, 0);
         //}
-        RestoreCooldown();
 
         // smooth rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, rotateTo, rotateSpeed);
@@ -142,6 +141,8 @@ public class Controller : MonoBehaviour
         // acceleration fov effect
         camera_fov_target = 60 + Mathf.Abs(GetComponent<Rigidbody>().velocity.x) / 3;
         Camera.main.GetComponent<Camera>().fieldOfView = Mathf.Lerp(Camera.main.GetComponent<Camera>().fieldOfView, camera_fov_target, camera_fov_delta);
+
+        RestoreCooldown();
     }
 
     void OnCollisionEnter()
@@ -201,7 +202,7 @@ public class Controller : MonoBehaviour
         }
         // if (is_colliding) {
         // Jump (allow double jump)
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             block_mode_index = 2;
             if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
@@ -210,10 +211,11 @@ public class Controller : MonoBehaviour
                 block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
                 Jump();
             }
+            Debug.Log("jump");
         }
 
         // accelerate
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetAxis("Horizontal") > 0)
         {
             block_mode_index = 0;
             if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
@@ -224,7 +226,7 @@ public class Controller : MonoBehaviour
             }
         }
         // decelerate
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetAxis("Horizontal") < 0)
         {
             block_mode_index = 1;
             if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
@@ -236,7 +238,7 @@ public class Controller : MonoBehaviour
         }
 
         // antigravity
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetAxis("Vertical") < 0)
         {
             block_mode_index = 3;
             if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])

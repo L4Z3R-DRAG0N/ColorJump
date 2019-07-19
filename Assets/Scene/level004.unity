@@ -2159,6 +2159,21 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: -8
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: path_position_array.Array.size
@@ -2178,21 +2193,6 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -4775,7 +4775,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   use_rotate: 0
+  rotate_around: {x: 0, y: 0, z: 0}
+  rotate_axis: {x: 0, y: 0, z: 0}
   rotate_speed: 0
+  rotate_speed_around_center: 0
 --- !u!114 &1537681500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4918,7 +4921,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   use_rotate: 0
+  rotate_around: {x: 0, y: 0, z: 0}
+  rotate_axis: {x: 0, y: 0, z: 0}
   rotate_speed: 0
+  rotate_speed_around_center: 0
 --- !u!114 &1540152096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5208,26 +5214,6 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: path_position_array.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: use_move
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: path_position_array.Array.data[1].x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: move_speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: use_resize
@@ -5247,6 +5233,26 @@ PrefabInstance:
         type: 3}
       propertyPath: resize_speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: path_position_array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_move
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: path_position_array.Array.data[1].x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: move_speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -6037,7 +6043,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   use_rotate: 0
+  rotate_around: {x: 0, y: 0, z: 0}
+  rotate_axis: {x: 0, y: 0, z: 0}
   rotate_speed: 0
+  rotate_speed_around_center: 0
 --- !u!114 &1857827839
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ public class finish_collide : MonoBehaviour
     {
         original_gravity = -Mathf.Abs(Physics.gravity.y);
         is_new_best_time = false;
+
+        // set the current level value for next level button to operate
+        PlayerPrefs.SetInt("current_level", this_scene_code);
     }
 
     void OnCollisionEnter(Collision collide) {
@@ -25,6 +28,7 @@ public class finish_collide : MonoBehaviour
             // do nothing if not player collide
             return;
         }
+        // round the time value to 3.d.p
         end_time = (float)(Mathf.Round(Time.timeSinceLevelLoad * 1000)) / 1000;
 
         float best_time = PlayerPrefs.GetFloat("level" + this_scene_code + "best_time");
@@ -52,7 +56,6 @@ public class finish_collide : MonoBehaviour
             // record level pass status here
             // next level became available
             PlayerPrefs.SetInt("level_progress", this_scene_code + 1);
-            Debug.Log(PlayerPrefs.GetInt("level_progress"));
         }
 
         collide.gameObject.GetComponent<Controller>().display_pass_menu = true;

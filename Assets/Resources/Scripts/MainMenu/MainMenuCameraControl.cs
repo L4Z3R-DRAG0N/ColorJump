@@ -18,7 +18,28 @@ public class MainMenuCameraControl : MonoBehaviour
 
     public GameObject[] level_block_list;
 
+    // used to determine which block should be which color
     private int level_progress;
+    // used to determine the position of camera when user exit the level
+    // the camera should lock on the level that player just quit
+    private int current_level;
+
+    void set_camera_moveto_pos(int progress)
+    {
+        // interate through the level block list and try to find the one that matchs level_progress
+        for (int i = 0; i < level_block_list.Length; i++)
+        {
+            Transform current_level_block_transform = level_block_list[i].transform;
+            // if match
+            if (int.Parse(current_level_block_transform.name.Substring(5, 3)) == progress)
+            {
+                target_level_block_pos = current_level_block_transform.position;
+
+                // initialize camera target pos to target level block location
+                move_to = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -41,56 +62,44 @@ public class MainMenuCameraControl : MonoBehaviour
         if (PlayerPrefs.HasKey("level_progress"))
         {
             // load if has key
-            level_progress = PlayerPrefs.GetInt("level_progress", level_progress);
+            level_progress = PlayerPrefs.GetInt("level_progress");
         }
         else
         {
             // if first start, no record, set progress as init value
             PlayerPrefs.SetInt("level_progress", level_progress);
         }
-        
-        if (PlayerPrefs.GetInt("GameFirstEnter") == 1)
-        {
-            // camera unlock
-            is_menu_start = true;
-            // interate through the level block list and try to find the one that matchs level_progress
-            for (int i = 0; i < level_block_list.Length; i++)
-            {
-                Transform current_level_block_transform = level_block_list[i].transform;
-                // if match
-                if (int.Parse(current_level_block_transform.name.Substring(5, 3)) == level_progress)
-                {
-                    target_level_block_pos = current_level_block_transform.position;
 
-                    // initial camera pos
-                    move_to = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
-                    // if quit from level, directly put the camera to the target level block
-                    transform.position = move_to;
-                }
-            }
+        current_level = 0;
+        if (PlayerPrefs.HasKey("current_level"))
+        {
+            // load if has key
+            current_level = PlayerPrefs.GetInt("current_level");
         }
         else
         {
-            // camera lock
-            is_menu_start = false;
-            // interate through the level block list and try to find the one that matchs level_progress
-            for (int i = 0; i < level_block_list.Length; i++)
-            {
-                Transform current_level_block_transform = level_block_list[i].transform;
-                // if match
-                if (int.Parse(current_level_block_transform.name.Substring(5, 3)) == level_progress)
-                {
-                    target_level_block_pos = current_level_block_transform.position;
-
-                    // initial camera pos
-                    move_to = new Vector3(target_level_block_pos.x - 6, 15, target_level_block_pos.z);
-
-                    // if just entered the game, force the player to watch the start animation
-                }
-            }
+            // if first start, no record, set progress as init value
+            PlayerPrefs.SetInt("current_level", level_progress);
         }
 
-
+        if (PlayerPrefs.GetInt("GameFirstEnter") == 1)
+        {
+            // camera movement unlock
+            is_menu_start = true;
+            // when quit a level, the camera should lock on the current level that player is just playing
+            set_camera_moveto_pos(current_level);
+            // if quit from level, directly put the camera to the target level block
+            transform.position = move_to;
+        }
+        else
+        {
+            // camera movement lock
+            is_menu_start = false;
+            // when enter the game, the camera should lock on the latest progress that the player made
+            set_camera_moveto_pos(level_progress);
+            // if just entered the game, force the player to watch the start animation
+        }
+        
         currentVelocity = Vector3.zero;
 
     }

@@ -46,8 +46,7 @@ public class ui_interact : MonoBehaviour
         Physics.gravity = new Vector3(0, original_gravity, 0);
         
         // 001, 002, ... etc
-        string next_level_code = "" + PlayerPrefs.GetInt("level_progress");
-        Debug.Log(next_level_code);
+        string next_level_code = "" + (PlayerPrefs.GetInt("current_level") + 1);
         // fill the missing 0s
         for (int i = 0; i < 3 - next_level_code.Length + 1; i++)
         {
