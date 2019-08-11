@@ -454,6 +454,11 @@ PrefabInstance:
       propertyPath: use_rotate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &421680742
@@ -618,16 +623,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1166525410040036551, guid: b205e3d39fbd33144b0783faeacc936e,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966452212979292636, guid: b205e3d39fbd33144b0783faeacc936e,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966452212979292636, guid: b205e3d39fbd33144b0783faeacc936e,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -1544,6 +1539,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3966452212979292636, guid: b205e3d39fbd33144b0783faeacc936e,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966452212979292636, guid: b205e3d39fbd33144b0783faeacc936e,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b205e3d39fbd33144b0783faeacc936e, type: 3}
 --- !u!1001 &440203285
@@ -1626,6 +1631,11 @@ PrefabInstance:
     - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1791,25 +1801,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -1830,6 +1825,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -1920,6 +1935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotate_speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -2183,6 +2203,11 @@ PrefabInstance:
       propertyPath: use_rotate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: move_speed
@@ -2420,25 +2445,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -2459,6 +2469,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -2717,6 +2747,11 @@ PrefabInstance:
       propertyPath: use_rotate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46565591189b937459f2cc777ec40c56, type: 3}
 --- !u!1001 &910350793
@@ -2801,25 +2836,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -2840,6 +2860,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -2925,6 +2965,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 3.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &931684767
@@ -3007,6 +3052,11 @@ PrefabInstance:
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
@@ -3518,6 +3568,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &1138063753
@@ -3602,6 +3657,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 3.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &1157019783
@@ -3685,6 +3745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotate_speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -3790,6 +3855,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &1219012472
@@ -3872,6 +3942,11 @@ PrefabInstance:
     - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4141,25 +4216,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -4180,6 +4240,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -4354,6 +4434,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &1424912350
@@ -4474,41 +4559,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218173966793971198, guid: e8105904ae1d3ae449fe9899a4bad678,
-        type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
@@ -4610,6 +4660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotate_speed
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -4799,25 +4854,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -4838,6 +4878,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -4921,6 +4981,11 @@ PrefabInstance:
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5132,41 +5197,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -51
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 19728635048172272, guid: 33383e369c46b8144b268b06ba1b2567,
-        type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
@@ -5267,6 +5297,11 @@ PrefabInstance:
     - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831364718551776837, guid: 46565591189b937459f2cc777ec40c56,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5527,25 +5562,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -5566,6 +5586,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -5649,6 +5689,11 @@ PrefabInstance:
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6264,6 +6309,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &2088149130
@@ -6452,25 +6502,10 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
-      propertyPath: use_resize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: max_length
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: min_length
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
-        type: 3}
-      propertyPath: resize_speed
-      value: 4
+      propertyPath: rotate_axis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899822804243748469, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
@@ -6491,6 +6526,26 @@ PrefabInstance:
         type: 3}
       propertyPath: move_speed
       value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: use_resize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: max_length
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: min_length
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748463, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: resize_speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
@@ -6576,6 +6631,11 @@ PrefabInstance:
       propertyPath: rotate_speed
       value: -2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e4447c40bf2e3418d6cc5e4f36183b, type: 3}
 --- !u!1001 &2130168633
@@ -6658,6 +6718,11 @@ PrefabInstance:
     - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
         type: 3}
       propertyPath: use_rotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899822804243748468, guid: 67e4447c40bf2e3418d6cc5e4f36183b,
+        type: 3}
+      propertyPath: rotate_axis.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

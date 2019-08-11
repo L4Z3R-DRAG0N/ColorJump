@@ -76,7 +76,7 @@ public class Controller : MonoBehaviour
         block_mode_list = new string[]{"accelerate", "decelerate", "jump", "antigravity", "normal"};
         block_mode_material_list = new Material[] { accelerate_mat, decelerate_mat, jump_mat, antigravity_mat, normal_mat };
         block_mode_cooldown_time_list = new float[] {1, 1, 1, 1, 1};
-        block_mode_cooldown_deplete_delta = new float[] { 0.01f, 0.01f, 0.5f, 1f, 0f };
+        block_mode_cooldown_deplete_delta = new float[] { 0.0f, 0.01f, 0.5f, 1f, 0f };
         block_mode_cooldown_restore_delta = new float[] { 0.005f, 0.005f, 0.00f, 0.005f, 1f };
         block_mode_index = 0;
 
@@ -202,7 +202,7 @@ public class Controller : MonoBehaviour
         }
         // if (is_colliding) {
         // Jump (allow double jump)
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetAxis("Vertical") > 0)
         {
             block_mode_index = 2;
             if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
@@ -211,7 +211,6 @@ public class Controller : MonoBehaviour
                 block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
                 Jump();
             }
-            Debug.Log("jump");
         }
 
         // accelerate
