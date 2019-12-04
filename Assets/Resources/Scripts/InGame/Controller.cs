@@ -24,8 +24,8 @@ public class Controller : MonoBehaviour
     private float[]    block_mode_cooldown_deplete_delta;
     private float[]    block_mode_cooldown_restore_delta;
     
-
     [SerializeField] GameObject UI;
+    [SerializeField] GameObject Trail;
 
     public float init_velocity;
 
@@ -76,8 +76,8 @@ public class Controller : MonoBehaviour
         block_mode_list = new string[]{"accelerate", "decelerate", "jump", "antigravity", "normal"};
         block_mode_material_list = new Material[] { accelerate_mat, decelerate_mat, jump_mat, antigravity_mat, normal_mat };
         block_mode_cooldown_time_list = new float[] {1, 1, 1, 1, 1};
-        block_mode_cooldown_deplete_delta = new float[] { 0.08f, 0.08f, 0.5f, 1f, 0f };
-        block_mode_cooldown_restore_delta = new float[] { 0.01f, 0.01f, 0.00f, 0.005f, 1f };
+        block_mode_cooldown_deplete_delta = new float[] { 0.02f, 0.08f, 0.02f, 1f, 0f };
+        block_mode_cooldown_restore_delta = new float[] { 0.00f, 0.01f, 0.00f, 0.005f, 1f };
         block_mode_index = 0;
 
 
@@ -157,8 +157,6 @@ public class Controller : MonoBehaviour
     void OnCollisionStay()
     {
         is_colliding = true;
-        // reset jump cooldown (1 is the max fuel)
-        block_mode_cooldown_time_list[2] = 1;
     }
 
     void OnCollisionExit()
@@ -201,15 +199,17 @@ public class Controller : MonoBehaviour
             // do not react to input if any menu is shown
             return;
         }
+
+        // restore normal mode, since normal mode is the last mode, index is length -1
+        block_mode_index = block_mode_list.Length - 1;
+
         // if (is_colliding) {
         // Jump (allow double jump)
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetAxis("Vertical") > 0)
         {
-            block_mode_index = 2;
-            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            if (block_mode_cooldown_time_list[2] > 0)
             {
-                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                block_mode_index = 2;
                 Jump();
             }
         }
@@ -217,22 +217,19 @@ public class Controller : MonoBehaviour
         // accelerate
         if (Input.GetAxis("Horizontal") > 0)
         {
-            block_mode_index = 0;
-            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            if (block_mode_cooldown_time_list[0] > 0)
             {
-                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                block_mode_index = 0;
                 Accelerate();
             }
         }
+
         // decelerate
         if (Input.GetAxis("Horizontal") < 0)
         {
-            block_mode_index = 1;
-            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            if (block_mode_cooldown_time_list[1] > 0)
             {
-                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                block_mode_index = 1;
                 Decelerate();
             }
         }
@@ -240,26 +237,38 @@ public class Controller : MonoBehaviour
         // antigravity
         if (Input.GetAxis("Vertical") < 0)
         {
-            block_mode_index = 3;
-            if (block_mode_cooldown_time_list[block_mode_index] >= block_mode_cooldown_deplete_delta[block_mode_index])
+            if (block_mode_cooldown_time_list[3] >= block_mode_cooldown_deplete_delta[3])
             {
-                GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
-                block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+                block_mode_index = 3;
                 Antigravity();
             }
         }
 
-            
+        // update player block mat
+        GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+        // update trail mat
+        Trail.GetComponent<Renderer>().material = block_mode_material_list[block_mode_index];
+        // update cooldown_time_list
+        block_mode_cooldown_time_list[block_mode_index] -= block_mode_cooldown_deplete_delta[block_mode_index];
+
+        // keep all timer larger or equal than 0
+        for (int i = 0; i < block_mode_cooldown_time_list.Length; i++)
+        {
+            if (block_mode_cooldown_time_list[i] < 0)
+            {
+                block_mode_cooldown_time_list[i] = 0;
+            }
+        }
 
         RenderBlockModeUI(block_mode_index);
-        // restore normal mode, since normal mode is the last mode, index is length -1
-        block_mode_index = block_mode_list.Length - 1;
     }
 
     void RenderBlockModeUI(int block_mode_index) {
         // HighLightChoosenColor and render percentage
         // -1: igore normal render, so length -1 (normal is the last mode in mode list)
-        for (int i = 0; i < block_mode_list.Length - 1; i ++) {
+        for (int i = 0; i < block_mode_list.Length; i ++) {
+            // render percentage
+            color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().fillAmount = block_mode_cooldown_time_list[i];
             if (i == block_mode_index) {
                 // highlight
                 color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
@@ -276,10 +285,8 @@ public class Controller : MonoBehaviour
 
     void RestoreCooldown() {
         // status cooldown bars
-        // -1: igore normal render, so length -1 (normal is the last mode in mode list)
+        // -1: igore normal cooldown, so length -1 (normal is the last mode in mode list)
         for (int i = 0; i < block_mode_list.Length - 1; i ++) {
-            // render percentage
-            color_panels.transform.Find(block_mode_list[i] + "_color").gameObject.GetComponent<Image>().fillAmount = block_mode_cooldown_time_list[i];
             // cooldown
             if (block_mode_cooldown_time_list[i] >= 1){
                 block_mode_cooldown_time_list[i] = 1;
@@ -298,7 +305,7 @@ public class Controller : MonoBehaviour
     void Jump() {
         // clear falling velocity
         player_rigid_body.velocity = new Vector3(player_rigid_body.velocity.x, 0, player_rigid_body.velocity.z);
-        player_rigid_body.AddForce(40 * -Physics.gravity);
+        player_rigid_body.AddForce(12 * -Physics.gravity);
     }
     void Antigravity() {
         if (Physics.gravity.y > 0)
@@ -324,5 +331,15 @@ public class Controller : MonoBehaviour
     public GameObject getTimeDisplay()
     {
         return pass_menu.transform.Find("time").gameObject;
+    }
+
+    public float[] getBlockModeCooldownTimeList()
+    {
+        return block_mode_cooldown_time_list;
+    }
+
+    public void setBlockModeCooldownTimeList(float[] _block_mode_cooldown_time_list)
+    {
+        block_mode_cooldown_time_list = _block_mode_cooldown_time_list;
     }
 }
