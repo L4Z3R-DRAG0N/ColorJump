@@ -12,6 +12,7 @@ public class levelBlockClick : MonoBehaviour
     private Material level_future;
     private Material level_now;
     private Material level_passed;
+    private Material level_hover;
 
     private bool clickable;
     void Start()
@@ -23,6 +24,7 @@ public class levelBlockClick : MonoBehaviour
         level_future = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_future", typeof(Material));
         level_now = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_now", typeof(Material));
         level_passed = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_passed", typeof(Material));
+        level_hover = (Material)Resources.Load("Materials/CubeMat/mainMenu/level_hover", typeof(Material));
 
         clickable = false;
         // the next level of current finished level should also be clickable
@@ -69,8 +71,8 @@ public class levelBlockClick : MonoBehaviour
         {
             return;
         }
-        Color new_color = new Color(1, 1, 0);
-        gameObject.GetComponent<MeshRenderer>().material.color = new_color;
+        Color new_color = Color.yellow;
+        gameObject.GetComponent<MeshRenderer>().materials[0].color = new_color;
         // show label
         // label.SetActive(true);
     }
@@ -81,7 +83,7 @@ public class levelBlockClick : MonoBehaviour
         {
             return;
         }
-        gameObject.GetComponent<MeshRenderer>().material.color = original_color;
+        gameObject.GetComponent<MeshRenderer>().materials[0].color = original_color;
         // hide label when mouse leave
         // label.SetActive(false);
     }
